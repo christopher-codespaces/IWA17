@@ -19,7 +19,10 @@ const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 
 
 // Only edit below
 
-// A function that creates an array of a specified length and returns it.
+
+
+
+// The createArray function creates an array of a specified length and returns it.
 const createArray = (length) => {
   const result = [];
 
@@ -31,13 +34,13 @@ const createArray = (length) => {
 };
 
 
-// A function that creates an array of data representing the days in the current month.
+// The createData function creates an array of data representing the days in the current month. It gets the current date, finds the first day of the month, and calculates the number of days in the month. It creates an array of the number of weeks in the month and the number of days in the week. It then iterates over the weeks array and fills in the days array for each week. It returns an array of data for the days in the month.The current variable gets the current date and sets the title of the table to the month and year.
 const createData = () => {
   const current = new Date();
 
   const firstDayOfMonth = new Date(current.getFullYear(), current.getMonth(), 1);
 
-  // Get the day of the week for the first day of the month & the number of days in the month..
+  // Getting the day of the week for the first day of the month & the number of days in the month..
   const startDay = firstDayOfMonth.getDay();
   const daysInMonth = getDaysInMonth(firstDayOfMonth);
 
@@ -70,16 +73,17 @@ const createData = () => {
 };
 
 
-/**
- * It has all the information about the week column.
- * -A function that returns a table cell with the given class and content.
- */
+// The addCell function returns a table cell with the given class and content.
+
+
 
 const addCell = (existing, classString) => {
   return /* html */ `
     <td class="${classString}">${existing}</td>
   `;
 };
+
+//The createHtml function takes an array of data for the days in the month and generates an HTML table. It checks if the last week in the data array is empty and removes it if it is. It then iterates over the weeks and days in the data array, adds the week number to the sidebar of the table, and adds the appropriate classes to the cell based on the day properties. It adds the 'alternate' class to every other row if week.week is an even number, indicating that it should have a different background color or some other visual distinction from the other cells in the same row. It returns the HTML table as a string.
 
 const createHtml = (data) => {
   let result = '';
@@ -139,6 +143,14 @@ const createHtml = (data) => {
 
 
 
-  
+
+
+// The getDaysInMonth() function takes a date object as input and returns the number of days in the corresponding month.
+
+// The createData() function generates an array of calendar data for the current month, including the number of weeks and days in the month.
+
+// The addCell() function takes an existing cell element, a CSS class string, and the cell's content, and returns a table cell element.
+
+// The createHtml() function generates the HTML for a table of calendar dates, given an array of calendar data. It uses the addCell() function to create table cells for each date.
 
 
